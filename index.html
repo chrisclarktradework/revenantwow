@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revenant | Horde Guild | WoW: Forever</title>
+<meta name="description" content="Revenant is a Horde raiding guild on WoW: Forever. Raids at 7pm, 9pm, 10pm and 10am EST. Join us on Discord or apply on the site.">
+<meta property="og:title" content="Revenant | Horde Guild | WoW: Forever">
+<meta property="og:description" content="Horde raiding guild on WoW: Forever. Raids at 7pm, 9pm, 10pm and 10am EST.">
+<meta property="og:image" content="https://www.revenantwow.com/revenant-logo.jpg">
+<meta property="og:url" content="https://www.revenantwow.com/">
+<link rel="icon" type="image/png" href="revenant-icon.png">
+<link rel="apple-touch-icon" href="revenant-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0605;
+  --bg2:#150908;
+  --panel:#170d0b;
+  --panel2:#1f1210;
+  --line:#3b1c15;
+  --ember:#c9341f;
+  --ember2:#e8593a;
+  --steel:#d8d0c8;
+  --text:#ece3db;
+  --muted:#a89088;
+  --ok:#8fd18f;
+  --bad:#ff8a80;
+  --discord:#5865f2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--ember2)}
+h1,h2,h3{font-family:Cinzel,Georgia,serif;letter-spacing:.04em;margin:0 0 .5rem}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);color:var(--steel)}
+h3{font-size:1.15rem;color:var(--ember2)}
+p{margin:0 0 1rem}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+
+.nav{position:sticky;top:0;z-index:10;background:rgba(10,6,5,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--steel);font-family:Cinzel,serif;font-weight:800;letter-spacing:.12em;font-size:1rem}
+.brand img{width:34px;height:34px;border-radius:8px}
+.nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;align-items:center}
+.nav a.link{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500}
+.nav a.link:hover{color:var(--text)}
+.nav a.disc{background:var(--discord);color:#fff;text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 12px;border-radius:6px}
+@media(max-width:640px){.nav ul li.hide{display:none}}
+
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(900px 520px at 50% -10%,rgba(201,52,31,.22),transparent 60%),
+  linear-gradient(180deg,var(--bg2),var(--bg));
+  border-bottom:1px solid var(--line)}
+.hero .wrap{padding:56px 16px 64px;text-align:center}
+.hero img.logo{width:min(560px,92vw);height:auto;border-radius:14px;box-shadow:0 0 0 1px var(--line),0 30px 80px rgba(201,52,31,.2)}
+.hero .tag{margin:26px auto 8px;font-family:Cinzel,serif;font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--steel);letter-spacing:.08em}
+.hero .sub{max-width:640px;margin:0 auto 26px;color:var(--muted);font-size:1.05rem}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:8px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-size:1rem;font-family:inherit}
+.btn.primary{background:linear-gradient(180deg,#d63b24,#8f1c10);color:#fff;box-shadow:0 8px 24px rgba(201,52,31,.3)}
+.btn.primary:hover{filter:brightness(1.1)}
+.btn.discord{background:var(--discord);color:#fff;box-shadow:0 8px 24px rgba(88,101,242,.25)}
+.btn.discord:hover{filter:brightness(1.08)}
+.btn.ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.02)}
+.btn.ghost:hover{border-color:var(--ember)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.btn svg{width:20px;height:20px;fill:currentColor}
+
+section{padding:64px 0}
+section+section{border-top:1px solid var(--line)}
+.lead{color:var(--muted);max-width:760px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:28px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:12px;padding:22px}
+.card .time{font-family:Cinzel,serif;font-size:1.7rem;font-weight:800;color:var(--ember2);line-height:1.1}
+.card .name{font-weight:600;margin:8px 0 6px;color:var(--steel)}
+.card p{color:var(--muted);font-size:.95rem;margin:0}
+.card.coffee{border-color:#5a2e1c}
+.pill{display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-bottom:10px}
+.note{margin-top:22px;color:var(--muted);font-size:.95rem}
+.values{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:28px}
+
+.discord-band{background:linear-gradient(90deg,rgba(88,101,242,.16),rgba(88,101,242,.04));border:1px solid rgba(88,101,242,.4);border-radius:14px;padding:26px 28px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;margin-top:32px}
+.discord-band h3{color:#fff;margin:0 0 4px;font-family:Inter,sans-serif;letter-spacing:0;font-size:1.2rem}
+.discord-band p{margin:0;color:var(--muted)}
+.discord-band a.url{font-size:1.15rem;font-weight:600;color:#c7ccff;word-break:break-all}
+
+form{margin-top:28px;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:28px}
+.row{display:grid;gap:18px;grid-template-columns:1fr 1fr}
+.row3{display:grid;gap:18px;grid-template-columns:1fr 1fr 1fr}
+@media(max-width:760px){.row,.row3{grid-template-columns:1fr}}
+select:disabled{opacity:.5}
+fieldset .field{margin-bottom:6px}
+label{display:block;font-weight:600;font-size:.92rem;margin:0 0 6px}
+.field{margin-bottom:18px}
+.help{color:var(--muted);font-size:.82rem;margin:4px 0 0}
+input[type=text],select,textarea{width:100%;background:#0f0807;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:11px 12px;font:inherit;font-size:.96rem}
+select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%23a89088' stroke-width='2'/></svg>");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
+select option,select optgroup{background:#15100e;color:var(--text)}
+input:focus,select:focus,textarea:focus{outline:2px solid rgba(201,52,31,.5);outline-offset:1px;border-color:var(--ember)}
+textarea{min-height:110px;resize:vertical}
+fieldset{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 18px}
+legend{font-weight:600;font-size:.92rem;padding:0 6px}
+.opts{display:grid;gap:8px 18px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.opt{display:flex;align-items:flex-start;gap:9px;font-weight:400;font-size:.95rem;cursor:pointer;padding:6px 4px}
+.opt input{margin-top:4px;accent-color:var(--ember)}
+.opt small{display:block;color:var(--muted);font-size:.8rem}
+.hp{position:absolute;left:-9999px;top:-9999px}
+.status{margin-top:14px;font-weight:500;min-height:1.4em}
+.status.ok{color:var(--ok)}.status.bad{color:var(--bad)}
+.req{color:var(--ember2)}
+
+footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="revenant-icon.png" alt="Revenant crest">REVENANT</a>
+    <ul>
+      <li class="hide"><a class="link" href="#about">About</a></li>
+      <li class="hide"><a class="link" href="#raids">Raid Times</a></li>
+      <li class="hide"><a class="link" href="#apply">Apply</a></li>
+      <li><a class="disc" href="https://discord.gg/revenantwow" target="_blank" rel="noopener">Discord</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <img class="logo" src="revenant-logo.jpg" alt="Revenant guild banner" width="296" height="162">
+    <div class="tag">HORDE &bull; WoW: FOREVER</div>
+    <p class="sub">Revenant is a Horde raiding guild on WoW: Forever. Raids start at 7pm, 9pm, 10pm and 10am EST.</p>
+    <div class="btns">
+      <a class="btn discord" href="https://discord.gg/revenantwow" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 5.6A17 17 0 0 0 15.4 4.3l-.2.4a15.7 15.7 0 0 1 4 2 14.2 14.2 0 0 0-14.4 0 15.7 15.7 0 0 1 4-2l-.2-.4a17 17 0 0 0-4.2 1.3C1.7 9.6 1 13.5 1.4 17.3a17.2 17.2 0 0 0 5.2 2.6l1.1-1.8a11 11 0 0 1-1.8-.9l.4-.3a12.2 12.2 0 0 0 11.4 0l.4.3a11 11 0 0 1-1.8.9l1.1 1.8a17.1 17.1 0 0 0 5.2-2.6c.5-4.4-.8-8.3-3-11.7ZM8.7 15c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1Zm6.6 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1Z"/></svg>discord.gg/revenantwow</a>
+      <a class="btn primary" href="#apply">Apply to Revenant</a>
+      <a class="btn ghost" href="#raids">Raid times</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="about">
+  <div class="wrap">
+    <h2>About Revenant</h2>
+    <p class="lead">Revenant is a Horde guild on WoW: Forever. We raid on a steady schedule with morning, evening and late night start times, so there is a raid that fits your day. We clear content, we help each other gear and we keep the drama out of guild chat.</p>
+    <div class="values">
+      <div class="card"><h3>Raid at your hour</h3><p>Raids start at 7pm, 9pm, 10pm and 10am EST. Sign up for the times you can make.</p></div>
+      <div class="card"><h3>Every play style</h3><p>Some of us push speed. Some of us chase parses. Some of us play casual and enjoy the ride. Tell us which one you are and we place you with the right group.</p></div>
+      <div class="card"><h3>Main, alt or both</h3><p>Raid on your main, bring an alt or run both. We take applications for each.</p></div>
+    </div>
+    <div class="discord-band">
+      <div>
+        <h3>Join us on Discord</h3>
+        <p>Guild chat, raid signups and officer contact all live on Discord.</p>
+      </div>
+      <a class="url" href="https://discord.gg/revenantwow" target="_blank" rel="noopener">https://discord.gg/revenantwow</a>
+    </div>
+  </div>
+</section>
+
+<section id="raids">
+  <div class="wrap">
+    <h2>Raid times</h2>
+    <p class="lead">Raids start at the times below. Be online, repaired and outside the instance 15 minutes before start. All times are EST.</p>
+    <div class="grid">
+      <div class="card"><span class="pill">Evening</span><div class="time">7pm - 10pm</div><p>Early evening start. Raid and still get to bed at a normal hour.</p></div>
+      <div class="card"><span class="pill">Evening</span><div class="time">9pm - Midnight</div><p>Prime time start.</p></div>
+      <div class="card"><span class="pill">Late night</span><div class="time">10pm - 1am</div><p>Late start for night owls and West Coast players.</p></div>
+      <div class="card coffee"><span class="pill">Morning</span><div class="time">10am - 1pm</div><div class="name">Morning Coffee Team</div><p>Pour a cup and raid before lunch. Good for shift workers, parents and anyone who is free in the morning.</p></div>
+    </div>
+    <p class="note">Raid days are posted on Discord. Ask an officer which nights run at your time.</p>
+  </div>
+</section>
+
+<section id="apply">
+  <div class="wrap">
+    <h2>Apply to Revenant</h2>
+    <p class="lead">Fill in the form below. An officer reads every application and replies on Discord. You can also ask questions first at <a href="https://discord.gg/revenantwow" target="_blank" rel="noopener">discord.gg/revenantwow</a>. Fields marked <span class="req">*</span> are required.</p>
+
+    <form id="appForm" novalidate>
+      <div class="row">
+        <div class="field">
+          <label for="charName">Character name <span class="req">*</span></label>
+          <input type="text" id="charName" name="Character" required maxlength="40" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="discord">Discord username <span class="req">*</span></label>
+          <input type="text" id="discord" name="Discord" required maxlength="60" autocomplete="off" placeholder="so we can reply to you">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="mainRC">Main race and class <span class="req">*</span></label>
+          <select id="mainRC" name="Main race and class" required></select>
+        </div>
+        <div class="field">
+          <label for="mainSpec">Main spec and role <span class="req">*</span></label>
+          <select id="mainSpec" name="Main spec and role" required disabled></select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="altRC">Alt race and class</label>
+          <select id="altRC" name="Alt race and class"></select>
+          <p class="help">Leave as None if you do not raid on an alt.</p>
+        </div>
+        <div class="field">
+          <label for="altSpec">Alt spec and role</label>
+          <select id="altSpec" name="Alt spec and role" disabled></select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="raidOn">Raiding on <span class="req">*</span></label>
+          <select id="raidOn" name="Raiding on" required>
+            <option value="" selected disabled>Select one</option>
+            <option>Main</option>
+            <option>Alt</option>
+            <option>Both</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="level">Character level</label>
+          <input type="text" id="level" name="Level" maxlength="10" inputmode="numeric" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="fav">What are your favorite things about WoW? <span class="req">*</span></label>
+        <textarea id="fav" name="Favorite things about WoW" required maxlength="1000" placeholder="Raiding, PvP, dungeons, professions, lore, the people..."></textarea>
+      </div>
+
+      <fieldset>
+        <legend>Preferred time of play <span class="req">*</span></legend>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" name="Preferred time" value="7pm-10pm EST"> 7pm-10pm EST</label>
+          <label class="opt"><input type="checkbox" name="Preferred time" value="9pm-midnight EST"> 9pm-midnight EST</label>
+          <label class="opt"><input type="checkbox" name="Preferred time" value="10pm-1am EST"> 10pm-1am EST</label>
+          <label class="opt"><input type="checkbox" name="Preferred time" value="10am-1pm EST"> 10am-1pm EST</label>
+        </div>
+        <p class="help">Select every time you can make.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Which is your highest priority? <span class="req">*</span></legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="Priority" value="Speed" required> <span>Speed<small>Fast clears. Efficient pulls. Short raid nights.</small></span></label>
+          <label class="opt"><input type="radio" name="Priority" value="Parse"> <span>Parse<small>Top logs. Min-max gear and rotation.</small></span></label>
+          <label class="opt"><input type="radio" name="Priority" value="Casual"> <span>Casual<small>Kill bosses, have fun, no pressure.</small></span></label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="more">Anything else we should know?</label>
+        <textarea id="more" name="Anything else" maxlength="1000" placeholder="Raid experience, alts, friends in the guild, questions for us"></textarea>
+      </div>
+
+      <div class="field hp" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button class="btn primary" type="submit" id="sendBtn">Send application</button>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; <span id="yr"></span> Revenant. A Horde guild on WoW: Forever.</div>
+    <div><a href="https://discord.gg/revenantwow" target="_blank" rel="noopener">discord.gg/revenantwow</a> &nbsp;&bull;&nbsp; <a href="mailto:mareeza@revenantwow.com">mareeza@revenantwow.com</a></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// WoW: Forever Horde races, the classes each race can play and the specs for each class.
+const RACES = {
+  'Orc':      ['Warrior','Hunter','Rogue','Shaman','Warlock','Mage'],
+  'Troll':    ['Warrior','Hunter','Rogue','Priest','Mage','Shaman','Warlock'],
+  'Tauren':   ['Warrior','Hunter','Shaman','Druid'],
+  'Undead':   ['Warrior','Rogue','Priest','Mage','Warlock','Paladin'],
+  'Skyborne': ['Warrior','Hunter','Rogue','Druid','Shaman']
+};
+const SPECS = {
+  'Warrior': ['Arms (DPS)','Fury (DPS)','Protection (Tank)'],
+  'Paladin': ['Holy (Healer)','Protection (Tank)','Retribution (DPS)'],
+  'Hunter':  ['Beast Mastery (DPS)','Marksmanship (DPS)','Survival (DPS)'],
+  'Rogue':   ['Assassination (DPS)','Combat (DPS)','Subtlety (DPS)'],
+  'Priest':  ['Discipline (Healer)','Holy (Healer)','Shadow (DPS)'],
+  'Shaman':  ['Elemental (DPS)','Enhancement (DPS)','Restoration (Healer)'],
+  'Mage':    ['Arcane (DPS)','Fire (DPS)','Frost (DPS)'],
+  'Warlock': ['Affliction (DPS)','Demonology (DPS)','Destruction (DPS)'],
+  'Druid':   ['Balance (DPS)','Feral (Tank)','Feral (DPS)','Restoration (Healer)']
+};
+function fill(sel, items, placeholder, grouped) {
+  sel.innerHTML = '';
+  const first = document.createElement('option');
+  first.value = ''; first.textContent = placeholder; first.selected = true;
+  if (sel.required) first.disabled = true;
+  sel.appendChild(first);
+  if (grouped) {
+    for (const [race, classes] of Object.entries(items)) {
+      const g = document.createElement('optgroup'); g.label = race;
+      classes.forEach(c => { const o = document.createElement('option'); o.value = race + ' ' + c; o.textContent = race + ' ' + c; g.appendChild(o); });
+      sel.appendChild(g);
+    }
+    sel.disabled = false;
+  } else {
+    items.forEach(v => { const o = document.createElement('option'); o.value = v; o.textContent = v; sel.appendChild(o); });
+    sel.disabled = items.length === 0;
+  }
+}
+function wirePair(rcId, specId, optional) {
+  const rc = document.getElementById(rcId), spec = document.getElementById(specId);
+  fill(rc, RACES, optional ? 'None' : 'Select race and class', true);
+  fill(spec, [], 'Select race and class first');
+  rc.addEventListener('change', () => {
+    const cls = rc.value.split(' ').pop();
+    fill(spec, SPECS[cls] || [], rc.value ? 'Select spec and role' : 'Select race and class first');
+  });
+}
+function wireAll() { wirePair('mainRC', 'mainSpec', false); wirePair('altRC', 'altSpec', true); }
+wireAll();
+document.getElementById('appForm').addEventListener('reset', () => setTimeout(wireAll, 0));
+
+// Applications post to the guild Discord through a webhook.
+// Replace the value below with the webhook URL from Discord:
+// Server Settings > Integrations > Webhooks > New Webhook > Copy Webhook URL
+const WEBHOOK_URL = "PASTE_DISCORD_WEBHOOK_URL_HERE";
+
+const form = document.getElementById('appForm');
+const statusEl = document.getElementById('status');
+const btn = document.getElementById('sendBtn');
+
+function setStatus(msg, cls){ statusEl.textContent = msg; statusEl.className = 'status ' + (cls||''); }
+
+form.addEventListener('submit', async function(e){
+  e.preventDefault();
+  setStatus('', '');
+
+  if (form.website.value) { setStatus('Application sent.', 'ok'); return; } // bot trap
+
+  const times = [...form.querySelectorAll('input[name="Preferred time"]:checked')].map(i => i.value);
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  if (times.length === 0) { setStatus('Select at least one preferred time of play.', 'bad'); return; }
+
+  if (!WEBHOOK_URL || WEBHOOK_URL.indexOf('discord.com/api/webhooks/') === -1) {
+    setStatus('The application form is not connected yet. Message an officer at discord.gg/revenantwow.', 'bad');
+    return;
+  }
+
+  const v = id => document.getElementById(id).value.trim();
+  const priority = form.querySelector('input[name="Priority"]:checked').value;
+  const clip = (s, n) => s.length > n ? s.slice(0, n - 1) + '…' : s;
+
+  const payload = {
+    username: 'Revenant Applications',
+    embeds: [{
+      title: 'New guild application: ' + clip(v('charName'), 60),
+      color: 0xc9341f,
+      fields: [
+        { name: 'Discord', value: clip(v('discord'), 100) || '-', inline: true },
+        { name: 'Main race and class', value: clip(v('mainRC'), 50) || '-', inline: true },
+        { name: 'Main spec and role', value: clip(v('mainSpec'), 100) || '-', inline: true },
+        { name: 'Alt race and class', value: clip(v('altRC'), 50) || 'None', inline: true },
+        { name: 'Alt spec and role', value: clip(v('altSpec'), 100) || 'None', inline: true },
+        { name: 'Raiding on', value: clip(v('raidOn'), 20) || '-', inline: true },
+        { name: 'Level', value: clip(v('level'), 20) || '-', inline: true },
+        { name: 'Highest priority', value: priority, inline: true },
+        { name: 'Preferred time of play', value: times.join(', ') },
+        { name: 'Favorite things about WoW', value: clip(v('fav'), 1000) },
+        { name: 'Anything else', value: clip(v('more'), 1000) || '-' }
+      ],
+      footer: { text: 'www.revenantwow.com' },
+      timestamp: new Date().toISOString()
+    }]
+  };
+
+  btn.disabled = true; setStatus('Sending...', '');
+  try {
+    const r = await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+    if (r.ok || r.status === 204) {
+      form.reset();
+      setStatus('Application sent. An officer will contact you on Discord.', 'ok');
+    } else {
+      setStatus('Send failed (' + r.status + '). Try again or message an officer on Discord.', 'bad');
+    }
+  } catch (err) {
+    setStatus('Send failed. Check your connection and try again.', 'bad');
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
