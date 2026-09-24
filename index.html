@@ -7,7 +7,7 @@
 <meta name="description" content="Revenant is a Horde raiding guild on WoW: Forever. Raids at 7pm, 9pm, 10pm and 10am EST. Join us on Discord or apply on the site.">
 <meta property="og:title" content="Revenant | Horde Guild | WoW: Forever">
 <meta property="og:description" content="Horde raiding guild on WoW: Forever. Raids at 7pm, 9pm, 10pm and 10am EST.">
-<meta property="og:image" content="https://www.revenantwow.com/revenant-logo.jpg">
+<meta property="og:image" content="https://www.revenantwow.com/revenant-banner.jpg">
 <meta property="og:url" content="https://www.revenantwow.com/">
 <link rel="icon" type="image/png" href="revenant-icon.png">
 <link rel="apple-touch-icon" href="revenant-icon.png">
@@ -43,7 +43,7 @@ p{margin:0 0 1rem}
 .nav{position:sticky;top:0;z-index:10;background:rgba(10,6,5,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--steel);font-family:Cinzel,serif;font-weight:800;letter-spacing:.12em;font-size:1rem}
-.brand img{width:34px;height:34px;border-radius:8px}
+.brand img{width:38px;height:38px;border-radius:50%;box-shadow:0 0 0 1px var(--line)}
 .nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;align-items:center}
 .nav a.link{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500}
 .nav a.link:hover{color:var(--text)}
@@ -55,7 +55,9 @@ p{margin:0 0 1rem}
   linear-gradient(180deg,var(--bg2),var(--bg));
   border-bottom:1px solid var(--line)}
 .hero .wrap{padding:56px 16px 64px;text-align:center}
-.hero img.logo{width:min(560px,92vw);height:auto;border-radius:14px;box-shadow:0 0 0 1px var(--line),0 30px 80px rgba(201,52,31,.2)}
+.hero img.logo{width:min(760px,94vw);height:auto;border-radius:14px;box-shadow:0 0 0 1px var(--line),0 30px 80px rgba(201,52,31,.22)}
+.discord-band .crest{width:72px;height:72px;border-radius:50%;flex:none;box-shadow:0 0 0 1px rgba(88,101,242,.4)}
+.discord-band .lhs{display:flex;gap:18px;align-items:center}
 .hero .tag{margin:26px auto 8px;font-family:Cinzel,serif;font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--steel);letter-spacing:.08em}
 .hero .sub{max-width:640px;margin:0 auto 26px;color:var(--muted);font-size:1.05rem}
 .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -132,7 +134,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 
 <header class="hero" id="top">
   <div class="wrap">
-    <img class="logo" src="revenant-logo.jpg" alt="Revenant guild banner" width="296" height="162">
+    <img class="logo" src="revenant-banner.jpg" alt="Revenant guild banner" width="1200" height="524">
     <div class="tag">HORDE &bull; WoW: FOREVER</div>
     <p class="sub">Revenant is a Horde raiding guild on WoW: Forever. Raids start at 7pm, 9pm, 10pm and 10am EST.</p>
     <div class="btns">
@@ -154,9 +156,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
       <div class="card"><h3>Main, alt or both</h3><p>Raid on your main, bring an alt or run both. We take applications for each.</p></div>
     </div>
     <div class="discord-band">
-      <div>
-        <h3>Join us on Discord</h3>
-        <p>Guild chat, raid signups and officer contact all live on Discord.</p>
+      <div class="lhs">
+        <img class="crest" src="revenant-crest-512.png" alt="Revenant crest" width="72" height="72" loading="lazy">
+        <div>
+          <h3>Join us on Discord</h3>
+          <p>Guild chat, raid signups and officer contact all live on Discord.</p>
+        </div>
       </div>
       <a class="url" href="https://discord.gg/revenantwow" target="_blank" rel="noopener">https://discord.gg/revenantwow</a>
     </div>

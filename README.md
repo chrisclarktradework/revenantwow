@@ -5,7 +5,7 @@ Static site for the Revenant Horde guild on WoW: Forever. Live at https://www.re
 ## Files
 - `index.html` - the full site. No build step.
 - `staticwebapp.config.json` - Azure Static Web Apps routing and headers.
-- `revenant-logo.jpg`, `revenant-icon.png` - source images.
+- `revenant-banner.jpg` (hero), `revenant-crest-512.png` (crest), `revenant-icon.png` (favicon and nav) - images.
 
 ## Application form
 The form posts to a Discord webhook. Set `WEBHOOK_URL` near the bottom of `index.html` to the webhook URL from Discord (Server Settings > Integrations > Webhooks).
