@@ -29,6 +29,8 @@
   --ok:#8fd18f;
   --bad:#ff8a80;
   --discord:#5865f2;
+  --rla:#e3261b;
+  --rla-hi:#ff5a43;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -114,6 +116,31 @@ legend{font-weight:600;font-size:.92rem;padding:0 6px}
 .status.ok{color:var(--ok)}.status.bad{color:var(--bad)}
 .req{color:var(--ember2)}
 
+.nav a.link.rla{color:var(--rla-hi);font-weight:600}
+.nav a.link.rla:hover{color:#fff}
+#rla{background:
+  radial-gradient(700px 380px at 12% 0%,rgba(227,38,27,.20),transparent 65%),
+  linear-gradient(180deg,#120605,var(--bg));
+  border-bottom:1px solid var(--line)}
+.rla-card{display:grid;grid-template-columns:240px 1fr;gap:36px;align-items:center;background:linear-gradient(180deg,rgba(40,10,8,.85),rgba(18,8,6,.9));border:1px solid rgba(227,38,27,.45);border-radius:16px;padding:32px;box-shadow:0 0 0 1px rgba(227,38,27,.08),0 24px 70px rgba(227,38,27,.16)}
+.rla-card img.rla-logo{width:240px;height:240px;border-radius:50%;display:block;box-shadow:0 0 0 2px rgba(227,38,27,.55),0 0 46px rgba(227,38,27,.35)}
+.rla-card h2{color:#fff;margin-bottom:.35rem}
+.rla-card h2 span{color:var(--rla-hi)}
+.rla-card .pill{border-color:rgba(227,38,27,.55);color:var(--rla-hi)}
+.rla-card .lead{color:var(--text);font-size:1.05rem;max-width:none}
+.rla-card .soon{color:var(--muted);margin-bottom:22px}
+.rla-card .btns{justify-content:flex-start}
+.btn.rla{background:linear-gradient(180deg,#ef3526,#9c140c);color:#fff;box-shadow:0 8px 26px rgba(227,38,27,.38)}
+.btn.rla:hover{filter:brightness(1.1)}
+.rla-credits{margin-top:24px;padding-top:18px;border-top:1px solid rgba(227,38,27,.25);color:var(--muted);font-size:.9rem}
+.rla-credits p{margin:0 0 6px}
+.rla-credits a{overflow-wrap:anywhere}
+@media(max-width:760px){
+  .rla-card{grid-template-columns:1fr;gap:22px;padding:24px 18px;text-align:center}
+  .rla-card img.rla-logo{width:170px;height:170px;margin:0 auto}
+  .rla-card .btns{justify-content:center}
+}
+
 footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--muted);font-size:.88rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
 </style>
@@ -127,6 +154,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
       <li class="hide"><a class="link" href="#about">About</a></li>
       <li class="hide"><a class="link" href="#raids">Raid Times</a></li>
       <li class="hide"><a class="link" href="#apply">Apply</a></li>
+      <li><a class="link rla" href="#rla">RLA</a></li>
       <li><a class="disc" href="https://discord.gg/revenantwow" target="_blank" rel="noopener">Discord</a></li>
     </ul>
   </div>
@@ -146,6 +174,28 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 </header>
 
 <main>
+<section id="rla">
+  <div class="wrap">
+    <div class="rla-card">
+      <img class="rla-logo" src="rla-logo.png" alt="Revenant Log Analyzer logo" width="320" height="320">
+      <div>
+        <span class="pill">New from &lt;Revenant&gt;</span>
+        <h2>Revenant Log Analyzer <span>(RLA)</span></h2>
+        <p class="lead">RLA is the AI raid leadership assistant from &lt;Revenant&gt;. It reads your combat log and shows every fight, every death and the root cause in real-time, so the next pull is smooth like buttah.</p>
+        <p class="soon">The desktop app for macOS and Windows is coming soon. Members with an RLA role on the Revenant Discord can sign in now.</p>
+        <div class="btns">
+          <a class="btn rla" href="https://rla.revenantwow.com" target="_blank" rel="noopener">Open RLA</a>
+          <a class="btn ghost" href="https://rla.revenantwow.com/download" target="_blank" rel="noopener">Get the app</a>
+        </div>
+        <div class="rla-credits">
+          <p>Made by Mareeza of &lt;Revenant&gt;. Contact Mareeza on Discord at <strong>mareeza</strong> or by email at <a href="mailto:mareeza@revenantwow.com">mareeza@revenantwow.com</a>.</p>
+          <p>RLA is owned and operated by Trade Genius, Inc.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="about">
   <div class="wrap">
     <h2>About Revenant</h2>
