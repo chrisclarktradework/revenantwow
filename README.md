@@ -1,6 +1,6 @@
 # Revenant guild website
 
-Static site for the Revenant Horde guild on WoW: Forever. Live at https://www.revenantwow.com
+Static site for the Revenant Horde guild on WoW Forever. Live at https://www.revenantwow.com
 
 ## Files
 - `index.html` - the full site. No build step.
