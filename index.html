@@ -391,10 +391,8 @@ function wireAll() { wirePair('mainRC', 'mainSpec', false); wirePair('altRC', 'a
 wireAll();
 document.getElementById('appForm').addEventListener('reset', () => setTimeout(wireAll, 0));
 
-// Applications post to the guild Discord through a webhook.
-// Replace the value below with the webhook URL from Discord:
-// Server Settings > Integrations > Webhooks > New Webhook > Copy Webhook URL
-const WEBHOOK_URL = "https://discord.com/api/webhooks/1552092417262620773/OSM8IXnFEydLkGoSMBTnYFCxdQ08QmZXwAr6eGryTeuX5K1q25SxtHttLiOhtwOa19vY";
+// Applications go to /api/apply on this site. The server sends them to the guild Discord.
+// The Discord webhook URL is an Azure app setting. Do not put it in this page.
 
 const form = document.getElementById('appForm');
 const statusEl = document.getElementById('status');
@@ -412,44 +410,22 @@ form.addEventListener('submit', async function(e){
   if (!form.checkValidity()) { form.reportValidity(); return; }
   if (times.length === 0) { setStatus('Select at least one preferred time of play.', 'bad'); return; }
 
-  if (!WEBHOOK_URL || WEBHOOK_URL.indexOf('discord.com/api/webhooks/') === -1) {
-    setStatus('The application form is not connected yet. Message an officer at discord.gg/revenantwow.', 'bad');
-    return;
-  }
-
   const v = id => document.getElementById(id).value.trim();
   const priority = form.querySelector('input[name="Priority"]:checked').value;
-  const clip = (s, n) => s.length > n ? s.slice(0, n - 1) + '…' : s;
-
   const payload = {
-    username: 'Revenant Applications',
-    embeds: [{
-      title: 'New guild application: ' + clip(v('charName'), 60),
-      color: 0xc9341f,
-      fields: [
-        { name: 'Discord', value: clip(v('discord'), 100) || '-', inline: true },
-        { name: 'Main race and class', value: clip(v('mainRC'), 50) || '-', inline: true },
-        { name: 'Main spec and role', value: clip(v('mainSpec'), 100) || '-', inline: true },
-        { name: 'Alt race and class', value: clip(v('altRC'), 50) || 'None', inline: true },
-        { name: 'Alt spec and role', value: clip(v('altSpec'), 100) || 'None', inline: true },
-        { name: 'Raiding on', value: clip(v('raidOn'), 20) || '-', inline: true },
-        { name: 'Level', value: clip(v('level'), 20) || '-', inline: true },
-        { name: 'Highest priority', value: priority, inline: true },
-        { name: 'Preferred time of play', value: times.join(', ') },
-        { name: 'Favorite things about WoW', value: clip(v('fav'), 1000) },
-        { name: 'Anything else', value: clip(v('more'), 1000) || '-' }
-      ],
-      footer: { text: 'www.revenantwow.com' },
-      timestamp: new Date().toISOString()
-    }]
+    charName: v('charName'), discord: v('discord'), mainRC: v('mainRC'), mainSpec: v('mainSpec'),
+    altRC: v('altRC'), altSpec: v('altSpec'), raidOn: v('raidOn'), level: v('level'),
+    priority: priority, times: times, fav: v('fav'), more: v('more')
   };
 
   btn.disabled = true; setStatus('Sending...', '');
   try {
-    const r = await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-    if (r.ok || r.status === 204) {
+    const r = await fetch('/api/apply', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+    if (r.ok) {
       form.reset();
       setStatus('Application sent. An officer will contact you on Discord.', 'ok');
+    } else if (r.status === 429) {
+      setStatus('Too many applications from this connection. Try again in 10 minutes.', 'bad');
     } else {
       setStatus('Send failed (' + r.status + '). Try again or message an officer on Discord.', 'bad');
     }
