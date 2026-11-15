@@ -50,7 +50,7 @@ p{margin:0 0 1rem}
 .nav a.link{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500}
 .nav a.link:hover{color:var(--text)}
 .nav a.disc{background:var(--discord);color:#fff;text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 12px;border-radius:6px}
-@media(max-width:640px){.nav ul li.hide{display:none}}
+
 
 .hero{position:relative;overflow:hidden;background:
   radial-gradient(900px 520px at 50% -10%,rgba(201,52,31,.22),transparent 60%),
@@ -116,6 +116,19 @@ legend{font-weight:600;font-size:.92rem;padding:0 6px}
 .status.ok{color:var(--ok)}.status.bad{color:var(--bad)}
 .req{color:var(--ember2)}
 
+.burger{display:none;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:8px;width:42px;height:38px;align-items:center;justify-content:center;cursor:pointer;color:var(--text);padding:0}
+.burger svg{display:block}
+.nav .disc.mob{display:none}
+.navr{display:flex;align-items:center;gap:10px}
+@media(max-width:760px){
+  .burger,.nav .disc.mob{display:inline-flex}
+  .nav ul{position:absolute;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0d0706;border-bottom:1px solid var(--line);box-shadow:0 18px 40px rgba(0,0,0,.6);padding:4px 16px 14px;display:none}
+  .nav.open ul{display:flex}
+  .nav ul li.hide{display:block}
+  .nav ul li.dli{display:none}
+  .nav ul a.link{display:block;padding:13px 4px;font-size:1rem;border-bottom:1px solid rgba(59,28,21,.6)}
+  .nav ul a.link.on{border-bottom:1px solid rgba(59,28,21,.6);padding-bottom:13px;color:#fff;box-shadow:inset 3px 0 0 var(--ember);padding-left:12px}
+}
 .nav a.link.rla{color:var(--rla-hi);font-weight:600}
 .nav a.link.rla:hover{color:#fff}
 #rla{background:
@@ -147,17 +160,21 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="#top"><img src="revenant-icon.png" alt="Revenant crest">REVENANT</a>
-    <ul>
+    <div class="navr">
+    <a class="disc mob" href="https://discord.gg/revenantwow" target="_blank" rel="noopener">Discord</a>
+    <button class="burger" id="burger" type="button" aria-label="Open the menu" aria-expanded="false" aria-controls="navmenu"><svg viewBox="0 0 24 24" width="22" height="22"><path id="bico" d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></button>
+    <ul id="navmenu">
       <li class="hide"><a class="link" href="#about">About</a></li>
       <li class="hide"><a class="link" href="#raids">Raid Times</a></li>
       <li class="hide"><a class="link" href="#apply">Apply</a></li>
       <li><a class="link" href="roster.html">Roster</a></li>
       <li><a class="link rla" href="#rla">RLA</a></li>
-      <li><a class="disc" href="https://discord.gg/revenantwow" target="_blank" rel="noopener">Discord</a></li>
+      <li class="dli"><a class="disc" href="https://discord.gg/revenantwow" target="_blank" rel="noopener">Discord</a></li>
     </ul>
+    </div>
   </div>
 </nav>
 
@@ -435,6 +452,15 @@ form.addEventListener('submit', async function(e){
     btn.disabled = false;
   }
 });
+</script>
+<script>
+(function(){var n=document.getElementById('nav'),b=document.getElementById('burger'),ic=document.getElementById('bico');
+function set(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close the menu':'Open the menu');ic.setAttribute('d',o?'M6 6l12 12M18 6L6 18':'M4 7h16M4 12h16M4 17h16')}
+b.addEventListener('click',function(e){e.stopPropagation();set(!n.classList.contains('open'))});
+document.getElementById('navmenu').addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+document.addEventListener('click',function(e){if(!n.contains(e.target))set(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+window.addEventListener('resize',function(){if(window.innerWidth>760)set(false)});})();
 </script>
 </body>
 </html>
