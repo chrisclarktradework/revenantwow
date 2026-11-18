@@ -156,6 +156,13 @@ legend{font-weight:600;font-size:.92rem;padding:0 6px}
 
 footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--muted);font-size:.88rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.nav ul li.dd{position:relative}
+#navmenu .sub{display:none;position:absolute;top:100%;left:-14px;flex-direction:column;align-items:stretch;gap:0;min-width:280px;padding:8px 0;margin:0;list-style:none;background:#0d0706;border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,.6);z-index:80}
+#navmenu li.dd:hover>.sub,#navmenu li.dd:focus-within>.sub{display:flex}
+#navmenu .sub a{display:block;padding:9px 16px;color:var(--muted);font-size:.9rem;white-space:nowrap;text-decoration:none;border:0}
+#navmenu .sub a:hover,#navmenu .sub a:focus{color:#fff;background:rgba(232,89,58,.12)}
+#navmenu li.dd>a.link:after{content:' \25BE';font-size:.75em}
+@media(max-width:760px){#navmenu .sub{display:flex;position:static;min-width:0;box-shadow:none;border:0;border-radius:0;background:none;padding:0 0 8px 14px}#navmenu .sub a{padding:9px 4px;font-size:.92rem;border-bottom:1px solid rgba(59,28,21,.35)}}
 </style>
 </head>
 <body>
@@ -171,6 +178,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
       <li class="hide"><a class="link" href="#raids">Raid Times</a></li>
       <li class="hide"><a class="link" href="#apply">Apply</a></li>
       <li><a class="link" href="roster.html">Roster</a></li>
+      <li class="dd"><a class="link" href="roster.html#team">Raid Teams</a><ul class="sub"><!--TEAMSNAV--><li><a href="roster.html#team-coffee-geist-team">Coffee Geist Team</a></li><li><a href="roster.html#team-peek-monday-40">Peek Monday 40-Man</a></li><li><a href="roster.html#team-zerxspeed-tuesday-20">ZerxSpeed Tuesday 20-Man</a></li><li><a href="roster.html#team-zerxspeed-wednesday-10">ZerxSpeed Wednesday 10-Man</a></li><li><a href="roster.html#team-dalian-friday-40">Dalian Friday Progression 40-Man</a></li><li><a href="roster.html#team-dalian-saturday-40">Dalian Saturday Casual 40-Man</a></li><!--/TEAMSNAV--></ul></li>
       <li><a class="link rla" href="#rla">RLA</a></li>
       <li class="dli"><a class="disc" href="https://discord.gg/revenantwow" target="_blank" rel="noopener">Discord</a></li>
     </ul>
